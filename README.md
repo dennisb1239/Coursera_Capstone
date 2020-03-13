@@ -105,5 +105,21 @@ latitude_Muc = location.latitude
 longitude_Muc = location.longitude
 print('The geograpical coordinate of Munich are {}, {}.'.format(latitude_Muc, longitude_Muc))
 ```
-_The geograpical coordinate of Munich are 48.1371079, 11.5753822._
+_The geograpical coordinates of Munich are 48.1371079, 11.5753822._
 
+Now we to get the get the geographical coordinates of the cities which are to be evaluated
+`
+cities = ['London, England', 'Dublin, Ireland', 'Frankfurt, Germany', 'Paris, France', 'Warsaw, Poland', 'Madrid, Spain', 'Lisbon, Portugal', 'Stockholm, Sweden', 'Helsinki, Finland', 'Milan, Italy', 'Brussels, Belgium', 'Amsterdam, Netherlands', 'Copenhagen, Denmark', 'Vienna, Austria', 'Prague, Czech Republic']
+city_locs = pd.DataFrame(columns = ('city','latitude','longitude'))
+
+for city in cities: 
+    address = city
+    location = geolocator.geocode(address)
+    latitude = location.latitude
+    longitude = location.longitude
+    data = {'city':[city], 'latitude':[latitude], 'longitude':[longitude]}
+    data = pd.DataFrame(data = data)
+    city_locs = city_locs.append(data)
+    
+city_locs
+`
