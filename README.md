@@ -9,7 +9,7 @@ The target audience therefore is clearly consisting of decision-makers at the bo
 The main question which will be tackled through this project is: "which candidate cities offer a similar environment compared to London?".
 
 ### DATA
-In order to be able to answer this question, data was gathered mainly from the eurostat database, which offers publicly available data on various topics related to the EU (https://ec.europa.eu/eurostat/data/database). 
+In order to be able to answer this question, data was gathered mainly from the eurostat database, which offers publicly available data on various topics related to the EU [Link](https://ec.europa.eu/eurostat/data/database). 
 
 The following parameters were identified to be relevant for the project scope: 
 - The percentage of country inhabitants with an education level of 5-8 acc. the International Standard Classification of Education (ISCED) (2018)
