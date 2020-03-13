@@ -3,6 +3,15 @@
 
 This project was created to finish the IBM Data Science spezialization offered on Coursera. 
 
+### Index
+- Business Problem
+- Data
+- Methodology
+- Analysis
+- Results and Discussion
+- Conclusion
+
+
 ### BUSINESS PROBLEM
 This project deals with the question to which EU city banks should move their HQ to, if the current location of their HQ is in the UK (more specifically London as it is the financial centre of the UK). The reason why banks are asking themselves this question is linked to the upcoming Brexit, which means that banks have higher hurdles to overcome when wanting to be involved in the EU market. 
 The target audience therefore is clearly consisting of decision-makers at the boards of these banks. 
