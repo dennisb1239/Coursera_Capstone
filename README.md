@@ -90,5 +90,26 @@ The data is saved in a pandas DataFrame and we check the dataframe
 ```
 df = pd.DataFrame()
 df = pd.read_excel("Data_C9W5_normalized.xlsx", index_col = 0)
-df
 ```
+Now let's have a look at the data types of the features in the dataframe
+```
+df.dtypes
+```
+In order to have a starting point for the visualization, we request the geographical coordinates of a center position in Europe. For this the city of Munich is choosen.
+```
+
+
+address_Muc = 'Munich, Germany'
+
+geolocator = Nominatim(user_agent="to_explorer")
+location = geolocator.geocode(address_Muc)
+latitude_Muc = location.latitude
+longitude_Muc = location.longitude
+print('The geograpical coordinate of Munich are {}, {}.'.format(latitude_Muc, longitude_Muc))
+
+
+```
+
+
+`The geograpical coordinate of Munich are 48.1371079, 11.5753822.`
+
