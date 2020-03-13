@@ -41,7 +41,27 @@ The following candidate cities were evaluated as potential new locations for ban
 First, we need to import all relevant libraries. 
 
 ```
+# import all relevant libraries
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing
+from sklearn.cluster import KMeans
+from sklearn.cluster import DBSCAN
+import json
 
+#!conda install -c conda-forge geopy --yes # uncomment this line if you haven't completed the Foursquare API lab
+from geopy.geocoders import Nominatim # convert an address into latitude and longitude values
+
+import requests 
+from pandas.io.json import json_normalize
+
+import matplotlib.cm as cm
+import matplotlib.colors as colors
+
+!conda install -c conda-forge folium=0.5.0 --yes
+import folium 
+
+print('Libraries imported.')
 ```
 
 
