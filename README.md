@@ -73,6 +73,7 @@ import folium
 
 print('Libraries imported.')
 ```
+![Image](CP_1.JPG)
 
 Then we get the data file prepared for the analysis. To do so, we clone my github repo
 
@@ -82,7 +83,8 @@ Then we get the data file prepared for the analysis. To do so, we clone my githu
 %cd cloned-repo
 !ls
 ```
-![Image](CP_1.JPG)
+![Image](CP_2.JPG)
+
 ### Methodology
 
 In this project we will try to find an alternative city, to which banks with their current HQ in London / UK can move to, in order to avoid negative consequences due to the upcoming Brexit. To do so, we followed the steps below:
