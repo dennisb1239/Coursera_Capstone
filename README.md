@@ -123,3 +123,106 @@ for city in cities:
     
 city_locs
 ```
+Then we create the first map to visualize the geographical positions of the evaluated cities.
+```
+# create map of Toronto using latitude and longitude values
+map_muc = folium.Map(location=[latitude_Muc,longitude_Muc], zoom_start=5)
+
+# add markers to map
+for city ,latitude, longitude, in zip(city_locs['city'], city_locs['latitude'], city_locs['longitude']):
+    #label = '{}, {}'.format(city)
+    label = city
+    label = folium.Popup(label, parse_html=True)
+    folium.CircleMarker(
+        [latitude, longitude],
+        radius=5,
+        popup=label,
+        color='blue',
+        fill=True,
+        fill_color='#3186cc',
+        fill_opacity=0.7,
+        parse_html = False).add_to(map_muc)  
+
+map_muc
+```
+Then we conduct the first cluster analysis using the KMeans algorithm. The results are displayed on a separate map.
+```
+kclusters = 5
+kmeans = KMeans(n_clusters=kclusters, random_state=0).fit(df)
+
+cluster_km = []
+for i in kmeans.labels_: 
+    cluster_km.append(i)
+
+city_locs['cluster_km'] = cluster_km
+
+# create map
+map_km_clusters = folium.Map(location=[latitude_Muc, longitude_Muc], zoom_start=5)
+
+# set color scheme for the clusters
+x = np.arange(kclusters)
+ys = [i + x + (i*x)**2 for i in range(kclusters)]
+colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
+rainbow = [colors.rgb2hex(i) for i in colors_array]
+
+# add markers to the map
+markers_colors = []
+for city, lat, lon, cluster_km in zip(city_locs['city'], city_locs['latitude'], city_locs['longitude'], city_locs['cluster_km']):
+    label = folium.Popup(str(city) + ' Cluster ' + str(cluster_km), parse_html=True)
+    folium.CircleMarker(
+        [lat, lon],
+        radius=6,
+        popup=label,
+        color=rainbow[int(cluster_km)-1],
+        fill=True,
+        fill_color=rainbow[int(cluster_km)-1],
+        fill_opacity=0.7).add_to(map_km_clusters)
+       
+map_km_clusters
+```
+Then we conduct the second cluster analysis using the DBSCAN algorithm. The results are displayed on a separate map.
+```
+dbscan = DBSCAN(eps = 0.8, min_samples = 2).fit(df)
+
+cluster_db = []
+for i in dbscan.labels_: 
+    cluster_db.append(i)
+
+city_locs['cluster_db'] = cluster_db
+
+# create map
+map_db_clusters = folium.Map(location=[latitude_Muc, longitude_Muc], zoom_start=5)
+
+# set color scheme for the clusters
+x = np.arange(len(cluster_db))
+ys = [i + x + (i*x)**2 for i in range(len(np.unique(cluster_db)))]
+colors_array = cm.rainbow(np.linspace(0, 1, len(ys)))
+rainbow = [colors.rgb2hex(i) for i in colors_array]
+
+# add markers to the map
+markers_colors = []
+for city, lat, lon, cluster_db in zip(city_locs['city'], city_locs['latitude'], city_locs['longitude'], city_locs['cluster_db']):
+    label = folium.Popup(str(city) + ' Cluster ' + str(cluster_db), parse_html=True)
+    folium.CircleMarker(
+        [lat, lon],
+        radius=5,
+        popup=label,
+        color=rainbow[int(cluster_db)-1],
+        fill=True,
+        fill_color=rainbow[int(cluster_db)-1],
+        fill_opacity=0.7).add_to(map_db_clusters)
+       
+map_db_clusters
+```
+
+### Results and Discussion
+
+The analysis shows that the only candidate city which can be considered similar enough is Paris, France.
+
+Using the KMeans algorithm, various groupings can be obtained, with only a small range of k clusters giving reasonable results. For only 2 clusters, the cities of Lisbon, Madrid, Paris, Frankfurt, Milan, Prague ad Warsaw are considered to be similar to London. As this result is not helping a decision, it is not used for the decision process. Within the range of 3-5 clusters, only Paris is considered to be an alternative to London. For a number of clusters higher than 5, there is no similar city in the evaluated candidate group. Therefore the only reasonable configuration to use for the decision process is with 3-5 clusters.
+
+For DBSCAN, the amount of minimum samples was set to 2 samples, as this would be enough to provide at least one candidate city which is similar to London. Therefore the other parameter changed was the epsilon parameter. Reducing this parameter from 2 to 0.1 in steps of 0.05, it becomes clear that values above 1.2 do not provide a similar city. Between 0.8 and 1.2, again Paris is the only city being considered an alternative to London. At 0.75, the next city added to the potential locations is Dublin. Below 0.75, further cities are added to this list, so that a reasonable recommendation cannot be given.
+
+###Conclusion
+
+Given the results discussed above, it is clear that only 2 cities can be considered a realistic alternatives compared to the current location in London: Paris and Dublin. This recommendation can be used for a in detail review of locations, involving other factors which were not included in this investigation, e.g. taxes to pay, infrastructure etc.
