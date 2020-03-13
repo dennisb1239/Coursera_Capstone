@@ -10,6 +10,7 @@ The main question which will be tackled through this project is: "which candidat
 
 ### DATA
 In order to be able to answer this question, data was gathered mainly from the eurostat database, which offers publicly available data on various topics related to the EU (https://ec.europa.eu/eurostat/data/database). 
+
 The following parameters were identified to be relevant for the project scope: 
 - The percentage of country inhabitants with an education level of 5-8 acc. the International Standard Classification of Education (ISCED) (2018)
 - The labor costs in the respective country [€] (2018)
@@ -39,5 +40,8 @@ The following candidate cities were evaluated as potential new locations for ban
 
 First, we need to import all relevant libraries. 
 
+```
+
+```
 
 
