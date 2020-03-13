@@ -49,8 +49,9 @@ from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
 import json
 
-#!conda install -c conda-forge geopy --yes # uncomment this line if you haven't completed the Foursquare API lab
-from geopy.geocoders import Nominatim # convert an address into latitude and longitude values
+!conda install -c conda-forge geopy --yes
+# convert an address into latitude and longitude values
+from geopy.geocoders import Nominatim 
 
 import requests 
 from pandas.io.json import json_normalize
