@@ -223,6 +223,6 @@ Using the KMeans algorithm, various groupings can be obtained, with only a small
 
 For DBSCAN, the amount of minimum samples was set to 2 samples, as this would be enough to provide at least one candidate city which is similar to London. Therefore the other parameter changed was the epsilon parameter. Reducing this parameter from 2 to 0.1 in steps of 0.05, it becomes clear that values above 1.2 do not provide a similar city. Between 0.8 and 1.2, again Paris is the only city being considered an alternative to London. At 0.75, the next city added to the potential locations is Dublin. Below 0.75, further cities are added to this list, so that a reasonable recommendation cannot be given.
 
-###Conclusion
+### Conclusion
 
 Given the results discussed above, it is clear that only 2 cities can be considered a realistic alternatives compared to the current location in London: Paris and Dublin. This recommendation can be used for a in detail review of locations, involving other factors which were not included in this investigation, e.g. taxes to pay, infrastructure etc.
