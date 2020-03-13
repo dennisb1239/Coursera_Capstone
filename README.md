@@ -65,4 +65,25 @@ import folium
 print('Libraries imported.')
 ```
 
+Then we get the data file prepared for the analysis. To do so, we clone my github repo
 
+```
+# Clone the entire repo.
+!git clone -l -s git://github.com/dennisb1239/Coursera_Capstone.git cloned-repo
+%cd cloned-repo
+!ls
+```
+
+### Methodology
+
+In this project we will try to find an alternative city, to which banks with their current HQ in London / UK can move to, in order to avoid negative consequences due to the upcoming Brexit. To do so, we followed the steps below:
+
+1. We first imported a prepared data set through the cloning of my git repository, and transformed it into a pandas DataFrame
+2. We created a second DataFrame, and store the geographical coordinates of the evaluated cities in it
+3. A first map is created, to visualize the geographical locations of the cities
+4. 2 different clustering algorithms are tested on the first Dataframe: KMeans & DBScan
+5. The results of the 2 cluster analyses are shown on separate maps, in order to make it easier to identify the alternative candidates
+
+### Analysis
+
+The data is saved in a pandas DataFrame and we check the dataframe
