@@ -40,7 +40,7 @@ The following candidate cities were evaluated as potential new locations for ban
 
 First, we need to import all relevant libraries. 
 
-```ruby
+```Python
 # import all relevant libraries
 import pandas as pd
 import numpy as np
