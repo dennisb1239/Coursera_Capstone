@@ -102,10 +102,14 @@ The data is saved in a pandas DataFrame and we check the dataframe
 df = pd.DataFrame()
 df = pd.read_excel("Data_C9W5_normalized.xlsx", index_col = 0)
 ```
+![Image](CP_3.JPG)
+
 Now let's have a look at the data types of the features in the dataframe
 ```python
 df.dtypes
 ```
+![Image](CP_4.JPG)
+
 In order to have a starting point for the visualization, we request the geographical coordinates of a center position in Europe. For this the city of Munich is choosen.
 ```python
 address_Muc = 'Munich, Germany'
@@ -134,6 +138,8 @@ for city in cities:
     
 city_locs
 ```
+![Image](CP_5.JPG)
+
 Then we create the first map to visualize the geographical positions of the evaluated cities.
 ```python
 # create map of Toronto using latitude and longitude values
@@ -156,6 +162,8 @@ for city ,latitude, longitude, in zip(city_locs['city'], city_locs['latitude'], 
 
 map_muc
 ```
+![Image](CP_6.JPG)
+
 Then we conduct the first cluster analysis using the KMeans algorithm. The results are displayed on a separate map.
 ```python
 kclusters = 5
@@ -191,6 +199,8 @@ for city, lat, lon, cluster_km in zip(city_locs['city'], city_locs['latitude'], 
        
 map_km_clusters
 ```
+![Image](CP_7.JPG)
+
 Then we conduct the second cluster analysis using the DBSCAN algorithm. The results are displayed on a separate map.
 ```python
 dbscan = DBSCAN(eps = 0.8, min_samples = 2).fit(df)
@@ -225,6 +235,7 @@ for city, lat, lon, cluster_db in zip(city_locs['city'], city_locs['latitude'], 
        
 map_db_clusters
 ```
+![Image](CP_8.JPG)
 
 ### Results and Discussion
 
