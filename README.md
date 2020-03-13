@@ -87,3 +87,8 @@ In this project we will try to find an alternative city, to which banks with the
 ### Analysis
 
 The data is saved in a pandas DataFrame and we check the dataframe
+```
+df = pd.DataFrame()
+df = pd.read_excel("Data_C9W5_normalized.xlsx", index_col = 0)
+df
+```
