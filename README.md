@@ -49,7 +49,7 @@ The following candidate cities were evaluated as potential new locations for ban
 
 First, we need to import all relevant libraries. 
 
-```Python
+```python
 # import all relevant libraries
 import pandas as pd
 import numpy as np
@@ -76,7 +76,7 @@ print('Libraries imported.')
 
 Then we get the data file prepared for the analysis. To do so, we clone my github repo
 
-```Python
+```python
 # Clone the entire repo.
 !git clone -l -s git://github.com/dennisb1239/Coursera_Capstone.git cloned-repo
 %cd cloned-repo
@@ -96,16 +96,16 @@ In this project we will try to find an alternative city, to which banks with the
 ### Analysis
 
 The data is saved in a pandas DataFrame and we check the dataframe
-```Python
+```python
 df = pd.DataFrame()
 df = pd.read_excel("Data_C9W5_normalized.xlsx", index_col = 0)
 ```
 Now let's have a look at the data types of the features in the dataframe
-```Python
+```python
 df.dtypes
 ```
 In order to have a starting point for the visualization, we request the geographical coordinates of a center position in Europe. For this the city of Munich is choosen.
-```Python
+```python
 address_Muc = 'Munich, Germany'
 
 geolocator = Nominatim(user_agent="to_explorer")
@@ -117,7 +117,7 @@ print('The geograpical coordinate of Munich are {}, {}.'.format(latitude_Muc, lo
 _The geograpical coordinates of Munich are 48.1371079, 11.5753822._
 
 Now we to get the get the geographical coordinates of the cities which are to be evaluated
-```Python
+```python
 cities = ['London, England', 'Dublin, Ireland', 'Frankfurt, Germany', 'Paris, France', 'Warsaw, Poland', 'Madrid, Spain', 'Lisbon, Portugal', 'Stockholm, Sweden', 'Helsinki, Finland', 'Milan, Italy', 'Brussels, Belgium', 'Amsterdam, Netherlands', 'Copenhagen, Denmark', 'Vienna, Austria', 'Prague, Czech Republic']
 city_locs = pd.DataFrame(columns = ('city','latitude','longitude'))
 
@@ -133,7 +133,7 @@ for city in cities:
 city_locs
 ```
 Then we create the first map to visualize the geographical positions of the evaluated cities.
-```Python
+```python
 # create map of Toronto using latitude and longitude values
 map_muc = folium.Map(location=[latitude_Muc,longitude_Muc], zoom_start=5)
 
@@ -155,7 +155,7 @@ for city ,latitude, longitude, in zip(city_locs['city'], city_locs['latitude'], 
 map_muc
 ```
 Then we conduct the first cluster analysis using the KMeans algorithm. The results are displayed on a separate map.
-```Python
+```python
 kclusters = 5
 kmeans = KMeans(n_clusters=kclusters, random_state=0).fit(df)
 
@@ -190,7 +190,7 @@ for city, lat, lon, cluster_km in zip(city_locs['city'], city_locs['latitude'], 
 map_km_clusters
 ```
 Then we conduct the second cluster analysis using the DBSCAN algorithm. The results are displayed on a separate map.
-```Python
+```python
 dbscan = DBSCAN(eps = 0.8, min_samples = 2).fit(df)
 
 cluster_db = []
