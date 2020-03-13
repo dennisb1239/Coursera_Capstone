@@ -3,7 +3,7 @@
 
 This project was created to finish the IBM Data Science spezialization offered on Coursera. 
 
-### Index
+### INDEX
 - Business Problem
 - Data
 - Methodology
