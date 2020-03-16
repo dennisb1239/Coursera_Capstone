@@ -1,5 +1,4 @@
-# IBM Data Science - Capstone project 
-## "WHERE TO MOVE DUE TO BREXIT?"
+# "WHERE TO MOVE DUE TO BREXIT?"
 
 This project was created in November 2019 to finish the IBM Data Science spezialization offered on Coursera . 
 
