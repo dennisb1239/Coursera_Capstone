@@ -21,7 +21,7 @@ The main question which will be tackled through this project is: "which candidat
 In order to be able to answer this question, data was gathered mainly from the eurostat database, which offers publicly available data on various topics related to the EU [(https://ec.europa.eu/eurostat/data/database)](https://ec.europa.eu/eurostat/data/database). 
 
 The following parameters were identified to be relevant for the project scope: 
-- The percentage of country inhabitants with an education level of 5-8 acc. the International Standard Classification of Education (ISCED) (2018)
+- The percentage of country inhabitants with an education level of 5-8 (tertiary education) acc. the International Standard Classification of Education (ISCED) (2018)
 - The labor costs in the respective country [€] (2018)
 - The average monthly rent in the candidate city [€/m^2] (2018)
 - Consumer prices acc. to the Harmonized Index of Consumer Prices (HICP) (2018)
@@ -75,7 +75,7 @@ print('Libraries imported.')
 ```
 ![Image](CP_1.JPG)
 
-Then we get the data file prepared for the analysis. To do so, we clone my github repo
+Then we get the data file prepared for the analysis. To do so, we clone my github repo.
 
 ```python
 # Clone the entire repo.
