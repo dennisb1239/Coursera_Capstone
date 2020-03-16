@@ -247,4 +247,4 @@ For DBSCAN, the amount of minimum samples was set to 2 samples, as this would be
 
 ### Conclusion
 
-Given the results discussed above, it is clear that only 2 cities can be considered a realistic alternatives compared to the current location in London: Paris and Dublin. This recommendation can be used for a in detail review of locations, involving other factors which were not included in this investigation, e.g. taxes to pay, infrastructure etc.
+Given the results discussed above, it is clear that only 2 cities can be considered a realistic alternatives compared to the current location in London: Paris and Dublin. This recommendation can be used for an in detail review of locations, involving other factors which were not included in this investigation, e.g. taxes to pay, infrastructure etc.
